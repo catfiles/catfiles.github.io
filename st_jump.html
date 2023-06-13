@@ -33,7 +33,7 @@
 		function st_load(){
 			wait (3,function () {
 				document.getElementById("main").style.display="none";
-				showImg('https://pixiv.yuki.sh/img-master/img/' + window.atob(getQueryString('sec')));
+				showImg('https://i.pixiv.re/img-master/img/' + window.atob(getQueryString('sec')));
 				document.title= 'catsecret://pixiv/img-original/img/' + window.atob(getQueryString('sec'))
 				history.pushState(state,'','/');
 			});
