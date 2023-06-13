@@ -5,8 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Verifying...</title>
 	<link rel="stylesheet" href="./css/hk.css">
+	<script type="text/javascript" src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=100"></script><script>mqq.ui.setTitleButtons({right:{iconID:3,callback:function(){alert('好牛逼呀，想举报吗？不存在的！你个弟弟！');}}}); </script>
+	<!--[if IE]>
+	<script src="https://www.zhangxinxu.com/wordpress/2018/08/js-base64-atob-btoa-encode-decode/base64-polyfill.js"></script>
+	<![endif]-->
 </head>
-<body>
+<body bgcolor ="#000000">
 	<div id="main" class="main" style="display:blocked;">
 		<div class="circle"></div>
 		<h1 id="second">Loading</h1>
@@ -20,7 +24,7 @@
 				wait (10,function () {
 					document.cookie == "nofirst=true";
 					document.getElementById("main").style.display="none";
-					showIframe('http://pxmr.ueuo.com/' + getQueryString('sec'));
+					st_load ();
 				});	
 				return;
 			}
@@ -29,17 +33,18 @@
 		function st_load(){
 			wait (3,function () {
 				document.getElementById("main").style.display="none";
-				showIframe('http://pxmr.ueuo.com/' + getQueryString('sec'));
+				showImg('http://pxmr.ueuo.com/img-original/img/' + window.atob(getQueryString('sec')));
+				document.title= 'catsecret://pixiv/img-original/img/' + window.atob(getQueryString('sec'))
+				history.pushState(state,'','/');
 			});
 			
 			
 		}
-		function showIframe(url,w,h){
+		function showImg(url){
 			var body = document.getElementsByTagName("body");
 			var div = document.createElement("div");
 			div.style = ' overflow: hidden;position: relative;';
-			div.innerHTML = '<iframe id="idFrame" name="idFrame" src="' +
-			url + '" height = "100%" width = "100%" frameborder="0" scrolling="auto" style="border: none;display: block;margin: 0 auto;"></iframe>';
+			div.innerHTML = '<img src="' + url + '">'//'<iframe id="idFrame" name="idFrame" src="' + url + '" height = "100%" width = "100%" frameborder="0" scrolling="auto" style="border: none;display: block;margin: 0 auto;"></iframe>';
 			document.body.appendChild(div);
 		}
 		function getQueryString(name) {
