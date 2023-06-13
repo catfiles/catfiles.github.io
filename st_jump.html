@@ -21,24 +21,22 @@
 		window.onload = function () {
 			if (document.cookie == "") {
 				document.getElementById("text").innerHTML="初次访问人机验证时间较长请耐心等待";
-				wait (10,function () {
+				wait (16,function () {
 					document.cookie = "nofirst=true";
 					document.getElementById("main").style.display="none";
 					st_load ();
 				});	
 				return;
 			}
-			st_load ();
+			wait (4,function () {
+				st_load ();
+			});
 		}
 		function st_load(){
-			wait (3,function () {
-				document.getElementById("main").style.display="none";
-				showImg('https://i.pixiv.re/img-original/' + window.atob(getQueryString('sec')));
-				document.title= 'catsecret://pixiv/img-original/img/' + window.atob(getQueryString('sec'))
-				history.pushState(state,'','/');
-			});
-			
-			
+			document.getElementById("main").style.display="none";
+			showImg('https://i.pixiv.re/img-original/img/' + window.atob(getQueryString('sec')));
+			document.title= 'catsecret://pixiv/img-original/img/' + window.atob(getQueryString('sec'))
+			history.pushState(state,'','/');
 		}
 		function showImg(url){
 			var body = document.getElementsByTagName("body");
