@@ -19,10 +19,10 @@
 	</div>
 	<script>
 		window.onload = function () {
-			if (document.cookie == "") {
+			if (document.cookie == "nofirst=true") {
 				document.getElementById("text").innerHTML="初次访问人机验证时间较长请耐心等待";
 				wait (10,function () {
-					document.cookie == "nofirst=true";
+					document.cookie = "nofirst=true";
 					document.getElementById("main").style.display="none";
 					st_load ();
 				});	
@@ -33,7 +33,7 @@
 		function st_load(){
 			wait (3,function () {
 				document.getElementById("main").style.display="none";
-				showImg('http://b.xymod.cn/img-original/img/' + window.atob(getQueryString('sec')));
+				showImg('https://pixiv.yuki.sh/img-master/img/' + window.atob(getQueryString('sec')));
 				document.title= 'catsecret://pixiv/img-original/img/' + window.atob(getQueryString('sec'))
 				history.pushState(state,'','/');
 			});
